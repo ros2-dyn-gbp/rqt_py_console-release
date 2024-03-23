@@ -54,6 +54,7 @@ rqt_py_console is a Python GUI plugin providing an interactive Python console.
 
 %install
 %py3_install -- --prefix "%{bloom_prefix}"
+install -m0644 -p -D package.xml %{buildroot}%{bloom_prefix}/share/%{pkg_name}/package.xml
 
 
 %if 0%{?with_tests}
