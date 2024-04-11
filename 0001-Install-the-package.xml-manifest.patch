@@ -1,0 +1,24 @@
+From af2dd98b45416fbb62e84c47e13c9013ca515c56 Mon Sep 17 00:00:00 2001
+From: Scott K Logan <logans@cottsay.net>
+Date: Fri, 22 Mar 2024 20:42:47 -0500
+Subject: [PATCH] Install the package.xml manifest
+
+---
+ rpm/ros-rolling-rqt-py-console.spec | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/rpm/ros-rolling-rqt-py-console.spec b/rpm/ros-rolling-rqt-py-console.spec
+index eda1d60bc23f..01732f1d6a19 100644
+--- a/rpm/ros-rolling-rqt-py-console.spec
++++ b/rpm/ros-rolling-rqt-py-console.spec
+@@ -54,6 +54,7 @@ rqt_py_console is a Python GUI plugin providing an interactive Python console.
+ 
+ %install
+ %py3_install -- --prefix "%{bloom_prefix}"
++install -m0644 -p -D package.xml %{buildroot}%{bloom_prefix}/share/%{pkg_name}/package.xml
+ 
+ 
+ %if 0%{?with_tests}
+-- 
+2.44.0
+
